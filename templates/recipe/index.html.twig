@@ -6,5 +6,19 @@
         {% endblock %}
 
 {% block body %}
-{{ message }}
+    {{ form_start(form) }}
+    {{ form_row(form.title) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.category) }}
+
+    <h3>Ingredients</h3>
+    <button type="button" id= "add-button" class="add_item_link" data-collection-holder-class="ingredients">Add an Ingredient</button>
+    <ul class="ingedients" id="ingredients-container" data-prototype="{{ form_widget(form.ingredients.vars.prototype)|e('html_attr') }}"></ul
+        {% for ingredient in form.ingredients %}
+            <li>{{ form_row(ingredient.name) }}</li>
+        {% endfor %}
+    </ul>
+    <button>ok</button>
+
+    {{ form_end(form) }}
 {% endblock %}

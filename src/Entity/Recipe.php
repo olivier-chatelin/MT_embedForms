@@ -30,13 +30,13 @@ class Recipe
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="recipes")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="recipes", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $category;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Ingredient::class, inversedBy="recipes")
+     * @ORM\ManyToMany(targetEntity=Ingredient::class, inversedBy="recipes", cascade={"persist"})
      */
     private $ingredients;
 
